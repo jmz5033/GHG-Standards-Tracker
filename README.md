@@ -40,6 +40,8 @@ python3 -m http.server 8000
 3. Build settings: **Framework preset = None**, build command *empty*, output directory `/`.
 4. Deploy. Every push to `main` auto-deploys, so a weekly commit to `data/data.json` republishes the site.
 
+Each page has its own URL (`/updates`, `/frameworks`, `/whats-changing`, `/how-they-relate`, `/timeline`, `/method`, `/audit`). This relies on Cloudflare Pages' single-page-app fallback, which serves `index.html` for any unmatched path — **do not add a `404.html` to this repo**, or deep links will break.
+
 ## Data model (short version)
 
 `data.json` top-level keys:

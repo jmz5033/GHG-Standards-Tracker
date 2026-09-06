@@ -32,9 +32,9 @@ main.wrap { min-height: calc(100vh - 58px); }
 #secGrid:empty { min-height: 220px; }
 #kpiGrid:empty { min-height: 380px; }
 #matrixWrap:empty { min-height: 380px; }
-#fwContent:empty, #chTables:empty, #updBuckets:empty, #xwGrid:empty, #tlInner:empty { min-height: 60vh; }
+#fwContent:empty, #chTables:empty, #updBuckets:empty, #xwGrid:empty, #tlInner:empty, #auditContent:empty { min-height: 60vh; }
 #landscape:empty, #secGrid:empty, #kpiGrid:empty, #matrixWrap:empty,
-#fwContent:empty, #chTables:empty, #updBuckets:empty, #xwGrid:empty, #tlInner:empty {
+#fwContent:empty, #chTables:empty, #updBuckets:empty, #xwGrid:empty, #tlInner:empty, #auditContent:empty {
   border-radius: 12px;
   background: linear-gradient(100deg, #EDF1F5 40%, #F6F8FA 50%, #EDF1F5 60%);
   background-size: 200% 100%;
@@ -165,6 +165,33 @@ a { color: var(--ghgp); }
 .chg-si.active { color:#fff; }
 .chg-si .fw-dot { width:8px; height:8px; }
 .chg-si.active .fw-dot { background:rgba(255,255,255,.9) !important; }
+
+/* ---------- audit ---------- */
+.audit-hero { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin:14px 0 4px; }
+.aud-stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+.aud-stat b { font-size:19px; display:block; color:var(--ink); letter-spacing:-.01em; }
+.aud-stat span { font-size:10.5px; color:var(--ink-3); }
+.aud-counts td { font-size:12px; padding:7px 12px 7px 0; border-bottom:1px solid var(--line-soft); color:var(--ink-2); }
+.aud-counts td:first-child { width:230px; }
+.aud-card { background:var(--card); border:1px solid var(--line); border-left-width:3px; border-radius:10px; padding:13px 16px; margin-bottom:10px; }
+.aud-card .ah { display:flex; gap:8px; align-items:center; margin-bottom:9px; flex-wrap:wrap; }
+.aud-card .area { font-size:12.5px; font-weight:700; color:var(--ink); }
+.aud-ba { display:grid; grid-template-columns:74px 1fr; gap:5px 10px; font-size:12.5px; line-height:1.5; }
+.aud-ba .k { font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-4); padding-top:3px; }
+.aud-ba .v-before { color:var(--ink-3); }
+.aud-ba .v-after { color:var(--ink); }
+.aud-why { font-size:11.5px; color:var(--ink-3); margin-top:8px; font-style:italic; }
+.aud-tag { font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; padding:2px 7px; border-radius:3px; flex-shrink:0; }
+.aud-error { background:#FEF2F2; color:#B91C1C; }
+.aud-stale { background:#FFF7ED; color:#9A3412; }
+.aud-over { background:#EEF2FF; color:#4338CA; }
+.aud-nit { background:#F1F5F9; color:#64748B; }
+.aud-unv { background:#F5F3FF; color:#6D28D9; }
+.aud-held { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:4px 16px; }
+.aud-held .hrow { padding:10px 0; border-bottom:1px solid var(--line-soft); font-size:12.5px; }
+.aud-held .hrow:last-child { border-bottom:none; }
+.aud-held .hrow b { display:block; color:var(--ink); margin-bottom:2px; }
+.aud-held .hrow span { color:var(--ink-3); }
 
 /* ---------- what's changing: per-framework priorities ---------- */
 .chg-sub { font-size:10.5px; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:.07em; margin:14px 0 8px; }
@@ -508,6 +535,7 @@ footer .wrap { font-size:11.5px; color:var(--ink-3); line-height:1.7; }
       <button class="side-item" data-view="crosswalk"><span class="si-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="4" cy="8" r="1.8"/><circle cx="12" cy="3.8" r="1.8"/><circle cx="12" cy="12.2" r="1.8"/><path d="M5.6 7.2l4.7-2.6M5.6 8.8l4.7 2.6"/></svg></span><span class="si-lbl">How they relate</span></button>
       <button class="side-item" data-view="timeline"><span class="si-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 4.5h7M2.5 8h11M2.5 11.5h5" stroke-linecap="round" stroke-width="2.2"/></svg></span><span class="si-lbl">Timeline</span></button>
       <button class="side-item" data-view="about"><span class="si-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="8" cy="8" r="5.8"/><path d="M8 7.2v3.6"/><circle cx="8" cy="4.9" r=".9" fill="currentColor" stroke="none"/></svg></span><span class="si-lbl">Method</span></button>
+      <button class="side-item" data-view="audit"><span class="si-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M8 1.8l5 1.9v3.5c0 3.4-2.1 5.6-5 6.9-2.9-1.3-5-3.5-5-6.9V3.7z"/><path d="M5.7 8.1l1.6 1.6 3-3.2"/></svg></span><span class="si-lbl">Audit</span></button>
     </div>
     <div class="side-sec" id="fwFilterSec" style="display:none">Framework filter</div>
     <div class="side-fws" id="sideFws" style="display:none"></div>
@@ -577,6 +605,10 @@ footer .wrap { font-size:11.5px; color:var(--ink-3); line-height:1.7; }
   </section>
 
   <!-- ABOUT -->
+  <section class="view" id="view-audit">
+    <div id="auditContent"></div>
+  </section>
+
   <section class="view" id="view-about">
     <div class="card about-card">
       <h3>What this is</h3>
@@ -639,7 +671,7 @@ const LIVE_DATA_URL = 'https://jhuaienvydgdnqwgwiau.supabase.co/functions/v1/ghg
     painted === null ? init() : applyData();
     painted = (d.meta && d.meta.last_updated) || '';
   };
-  const localP = fetch('data/data.json').then(r => r.ok ? r.json() : null).catch(() => null);
+  const localP = fetch('/data/data.json').then(r => r.ok ? r.json() : null).catch(() => null);
   const liveP = (async () => {
     try {
       const c = new AbortController(); const t = setTimeout(() => c.abort(), 6000);
@@ -747,6 +779,7 @@ function init(){
     document.querySelector('#sideCollapse .si-ico').textContent = c ? '»' : '«';
     document.querySelector('#sideCollapse .si-lbl').textContent = c ? '' : 'Collapse';
   });
+  if (CAN_ROUTE && viewFromPath() !== 'overview') showView(viewFromPath(), 'replace');
   applyData();
 }
 function applyData(){
@@ -768,20 +801,58 @@ function applyData(){
   renderCrosswalk();
   renderTimeline();
   renderUpdates();
+  renderAudit();
   renderAbout();
   buildSearch();
 }
 
-const VIEW_TITLES = { overview:'Overview', updates:'Updates', frameworks:'Frameworks', changes:"What's changing", crosswalk:'How they relate', timeline:'Timeline', about:'Method' };
+const VIEW_TITLES = { overview:'Overview', updates:'Updates', frameworks:'Frameworks', changes:"What's changing", crosswalk:'How they relate', timeline:'Timeline', audit:'Audit', about:'Method' };
+/* clean URLs — relies on Cloudflare Pages serving index.html for unmatched paths (no 404.html in the repo) */
+const VIEW_PATHS = { overview:'/', updates:'/updates', frameworks:'/frameworks', changes:'/whats-changing', crosswalk:'/how-they-relate', timeline:'/timeline', audit:'/audit', about:'/method' };
+const PATH_VIEWS = Object.fromEntries(Object.entries(VIEW_PATHS).map(([v, p]) => [p, v]));
+const CAN_ROUTE = location.protocol === 'https:' || location.protocol === 'http:';
+const BASE_TITLE = document.title;
+function viewFromPath(){
+  const p = location.pathname.replace(/\/+$/, '') || '/';
+  return PATH_VIEWS[p] || 'overview';
+}
 let CURRENT_VIEW = 'overview';
-function showView(v){
+function showView(v, nav){
   CURRENT_VIEW = v;
   document.querySelectorAll('.side-item').forEach(x => x.classList.toggle('active', x.dataset.view === v));
   document.querySelectorAll('.view').forEach(x => x.classList.remove('active'));
   document.getElementById('view-' + v).classList.add('active');
   document.getElementById('tbTitle').textContent = VIEW_TITLES[v] || '';
   updateFilterVis(v);
+  document.title = v === 'overview' ? BASE_TITLE : VIEW_TITLES[v] + ' — GHG Standards Tracker';
+  if (CAN_ROUTE && nav !== 'none'){
+    const path = VIEW_PATHS[v] || '/';
+    if (nav === 'replace') history.replaceState({ v }, '', path);
+    else if (location.pathname.replace(/\/+$/, '') !== path.replace(/\/$/, '') && location.pathname !== path) history.pushState({ v }, '', path);
+  }
   window.scrollTo({top:0});
+}
+window.addEventListener('popstate', () => showView(viewFromPath(), 'none'));
+
+/* items added by the most recent weekly run — drives the "N new" pill.
+   Prefers explicit `added` stamps (each weekly run stamps its new items with the
+   run date); falls back to items dated within 7 days of the last refresh. */
+function newSinceLastRun(){
+  const stamped = DATA.updates.filter(u => u.added);
+  let out, runDate;
+  if (stamped.length){
+    runDate = stamped.map(u => u.added).sort().pop();
+    out = DATA.updates.filter(u => u.added === runDate);
+  } else {
+    runDate = DATA.meta.last_updated;
+    const ref = new Date(runDate + 'T12:00:00');
+    out = DATA.updates.filter(u => {
+      const days = (ref - new Date(u.date + 'T12:00:00')) / 86400000;
+      return days >= 0 && days < 7;
+    });
+  }
+  out._runDate = runDate;
+  return out;
 }
 
 /* ---------- recency ---------- */
@@ -909,6 +980,7 @@ function buildSearch(){
   (DATA.overview?.heavy_hitters || []).forEach((x,i) => add(x.title, "What's changing · priority actions", 'changes', 'hh-' + i, x.framework, x.what + ' ' + x.action + ' ' + (x.who||'')));
   (DATA.overview?.horizon || []).forEach((x,i) => add(x.title, "What's changing · on the horizon", 'changes', 'hz-' + i, x.framework, x.note));
   Object.entries(DATA.glossary || {}).forEach(([term, def], i) => add(term, 'Glossary', 'about', 'gl-' + i, null, def + ' ' + (ACRO[term]||'')));
+  (DATA.audit?.fixes || []).forEach((f,i) => add(f.area, 'Audit · corrections', 'audit', 'aud-' + i, FW_COLORS[f.framework] ? f.framework : null, f.before + ' ' + f.after + ' ' + f.why));
   SEARCH_IX = ix;
 
   const inp = document.getElementById('searchInput'), drop = document.getElementById('searchDrop');
@@ -956,7 +1028,8 @@ const SEC_INFO = [
   ['changes', "Old rule vs. new rule for each framework — plus the priority actions and watch items."],
   ['crosswalk', "The map of how the frameworks connect, overlap, and diverge."],
   ['timeline', "Every revision from launch to in-force on one timeline."],
-  ['about', "How confidence is rated, how the data is maintained, and the plain-English glossary."]
+  ['about', "How confidence is rated, how the data is maintained, and the plain-English glossary."],
+  ['audit', "Every correction from the latest monthly fact-check — what was wrong and what it says now."]
 ];
 function renderSecGrid(){
   document.getElementById('secGrid').innerHTML = SEC_INFO.map(([v, d]) => {
@@ -1052,8 +1125,10 @@ function renderOverview(){
   wireMatrixTips();
   renderSecGrid();
 
-  const week = DATA.updates.filter(u => bucketOf(u.date)==='week');
-  if (week.length) { const b = document.getElementById('weekBadge'); b.style.display='inline-block'; b.textContent = week.length + ' new'; }
+  const fresh = newSinceLastRun();
+  const b = document.getElementById('weekBadge');
+  b.style.display = fresh.length ? 'inline-block' : 'none';
+  if (fresh.length){ b.textContent = fresh.length + ' new'; b.title = 'Added by the ' + fmtDate(fresh._runDate) + ' refresh'; }
 }
 
 /* ---------- frameworks ---------- */
@@ -1309,6 +1384,58 @@ function drawBuckets(){
 }
 
 /* ---------- about ---------- */
+/* ---------- audit ---------- */
+const AUD_SEV = {
+  error:      ['Error', 'aud-error', '#B91C1C'],
+  stale:      ['Stale', 'aud-stale', '#B45309'],
+  overstated: ['Overstated', 'aud-over', '#4338CA'],
+  nit:        ['Precision', 'aud-nit', '#94A3B8'],
+  unverified: ['Unverified', 'aud-unv', '#6D28D9']
+};
+function audTag(s){ const m = AUD_SEV[s] || AUD_SEV.nit; return `<span class="aud-tag ${m[1]}">${m[0]}</span>`; }
+function renderAudit(){
+  const el = document.getElementById('auditContent'); if (!el) return;
+  const A = DATA.audit;
+  if (!A){
+    el.innerHTML = `<div class="card about-card"><h3>Audit trail</h3>
+      <p>Once a month the full dataset is independently re-audited against primary sources, and every correction is published here — what the site said, what it says now, and why. The first audit report will appear after the next monthly run. The process is documented in <a href="https://github.com/jmz5033/ghg-standards-tracker/blob/main/VERIFICATION.md" target="_blank" rel="noopener">VERIFICATION.md</a>.</p></div>`;
+    return;
+  }
+  glossBegin();
+  const stats = A.stats || {};
+  const counts = (A.counts || []).map(c =>
+    `<tr><td>${audTag(c.severity)} <span style="margin-left:6px">${esc(c.label)}</span></td><td><b>${c.raised}</b> raised</td><td><b>${c.applied}</b> applied</td></tr>`).join('');
+  const fixes = (A.fixes || []).map((f, i) => `
+    <div class="aud-card" id="aud-${i}" style="border-left-color:${(AUD_SEV[f.severity]||AUD_SEV.nit)[2]}">
+      <div class="ah">${audTag(f.severity)}${FW_COLORS[f.framework] ? fwChip(f.framework) : ''}<span class="area">${esc(f.area)}</span></div>
+      <div class="aud-ba">
+        <span class="k">Said</span><span class="v-before">${gloss(f.before)}</span>
+        <span class="k">Now says</span><span class="v-after">${gloss(f.after)}</span>
+      </div>
+      <div class="aud-why">${gloss(f.why)}</div>
+    </div>`).join('');
+  const held = (A.not_applied || []).map(x =>
+    `<div class="hrow"><b>${esc(x.title)}</b><span>${esc(x.reason)}</span></div>`).join('');
+  el.innerHTML = `
+    <div class="card about-card">
+      <h3>How this audit works</h3>
+      <p>${gloss(A.intro)}</p>
+      <p style="margin-top:8px"><b>Latest audit: ${fmtDate(A.run)}</b> · ${esc(A.cadence)} · full process in <a href="https://github.com/jmz5033/ghg-standards-tracker/blob/main/VERIFICATION.md" target="_blank" rel="noopener">VERIFICATION.md</a></p>
+    </div>
+    <div class="audit-hero">
+      <div class="aud-stat"><b>${esc(stats.claims_checked || '—')}</b><span>claims re-verified against primary sources</span></div>
+      <div class="aud-stat"><b>${stats.edits_applied ?? '—'}</b><span>corrections applied to the live dataset</span></div>
+      <div class="aud-stat"><b>${esc(stats.sources_spotchecked || '—')}</b><span>source links spot-checked</span></div>
+    </div>
+    <div class="card about-card"><h3>Findings by severity</h3><table class="aud-counts">${counts}</table></div>
+    <div class="section-title">What was corrected — most consequential first</div>
+    ${fixes}
+    <div class="section-title">Found, but deliberately not changed</div>
+    <div class="aud-held">${held}</div>
+    <div class="section-title">Came through clean</div>
+    <div class="card about-card"><p>${gloss(A.clean || '')}</p><p style="margin-top:8px;color:var(--ink-3);font-size:12px">${esc(A.backup_note || '')}</p></div>`;
+}
+
 function renderAbout(){
   const CONF_ORDER = { confirmed:0, high:1, medium:2, low:3 };
   document.getElementById('confTable').innerHTML = Object.entries(DATA.confidence_legend)
