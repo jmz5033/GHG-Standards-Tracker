@@ -586,6 +586,7 @@ footer .wrap { font-size:11.5px; color:var(--ink-3); line-height:1.7; }
   <!-- CROSSWALK -->
   <section class="view" id="view-crosswalk">
     <div class="card xw-intro" id="xwIntro"></div>
+    <div id="xwMapWrap"></div>
     <div class="section-title">Connections</div>
     <div class="xw-grid" id="xwGrid"></div>
     <div class="section-title">Divergence watchlist — where the frameworks could pull apart</div>
@@ -1225,7 +1226,7 @@ const XW_TYPE_COLOR = { merging:'#9A6A00', references:'#1D4ED8', depends:'#04785
 
 function renderCrosswalk(){
   document.getElementById('xwIntro').textContent = DATA.crosswalk.intro;
-  document.getElementById('xwIntro').insertAdjacentHTML('afterend', xwMap());
+  document.getElementById('xwMapWrap').innerHTML = xwMap();
   document.getElementById('xwGrid').innerHTML = DATA.crosswalk.relationships.map((r,i) => `${glossBegin()}
     <div class="card xw-card" id="xwc-${i}" data-pair="${r.from}-${r.to}">
       <span class="xw-type xt-${r.type}">${r.type}</span>
