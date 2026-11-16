@@ -675,7 +675,7 @@ const LIVE_DATA_URL = 'https://jhuaienvydgdnqwgwiau.supabase.co/functions/v1/ghg
   const localP = fetch('/data/data.json').then(r => r.ok ? r.json() : null).catch(() => null);
   const liveP = (async () => {
     try {
-      const c = new AbortController(); const t = setTimeout(() => c.abort(), 6000);
+      const c = new AbortController(); const t = setTimeout(() => c.abort(), 15000);
       const r = await fetch(LIVE_DATA_URL, { signal: c.signal });
       clearTimeout(t);
       return r.ok ? await r.json() : null;
@@ -701,7 +701,7 @@ const fmtDate = s => {
   if (p.length === 3) return months[+p[1]-1] + ' ' + (+p[2]) + ', ' + p[0];
   return s;
 };
-const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 let GLOSS_TERMS = [], ACRO = {};
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 let GLOSS_SEEN = null;
